@@ -229,7 +229,7 @@ promiseGeradora.then((data) => {
 2 - Tratando erros: Modifique a função do exercício anterior para que ela tenha uma chance de erro aleatória. Use try/catch para capturar esse erro quando você chamar a função.
 3 - Chamadas de API assíncronas: Faça uma chamada de API assíncrona usando fetch(). Imprima os dados retornados da API.
 4 - Esperando múltiplas Promises: Crie duas funções assíncronas que retornam Promises que resolvem após diferentes períodos de tempo. Use Promise.all() para esperar que ambas as Promises sejam resolvidas e, em seguida, imprima os resultados.
-Aninhando async/await: Crie uma função async que chama outra função async dentro dela. Imprima o resultado retornado pela função interna.
+5 - Aninhando async/await: Crie uma função async que chama outra função async dentro dela. Imprima o resultado retornado pela função interna.
 Iteração assíncrona: Crie uma função async que percorra uma lista de URLs e faça uma chamada de API para cada URL usando await. Imprima os resultados quando todas as chamadas de API forem concluídas.
 Limitando chamadas assíncronas: Modifique o exercício anterior para que, no máximo, apenas três chamadas de API sejam feitas simultaneamente. Use Promise.all() com um número limitado de Promises.
 Timeout em uma Promise: Crie uma função que retorna uma Promise que resolve após um certo tempo, mas rejeita se demorar mais do que um limite especificado. Use Promise.race() para implementar isso.
@@ -301,14 +301,37 @@ async function puxaDados () {
   }
 }
 
-*/
+
 
 //Resolução 4 - Esperando múltiplas Promises: Crie duas funções assíncronas que retornam Promises que resolvem após diferentes períodos de tempo. Use Promise.all() para esperar que ambas as Promises sejam resolvidas e, em seguida, imprima os resultados.
 
-async function p1 () {
+Errei algumas sintaxes (catch deve estar dentro do try)
 
+async function myPromises () {
+
+  try{
+  const p1 =  await new Promise ((resolve, reject) => {
+    setTimeout(() => {
+      resolve(console.log('p1 resolvida!'));
+    }, 1000);
+  })
+  const p2 = await new Promise((reject,resolve) => {
+    setTimeout(() => {
+      resolve(console.log('p2 resolvida!'));
+    }, 1000);
+  })
+
+  catch(erro) {
+    console.log('Houve um erro!' + erro)
+  }
 }
 
-async function p2 () {
-
+  Promise.all([p1,p2]) {
+    resolve(console.log('Todas as promises foram resolvidas!'))
+  }
 }
+
+myPromises()
+
+*/
+// 5 - Aninhando async/await: Crie uma função async que chama outra função async dentro dela. Imprima o resultado retornado pela função interna.
