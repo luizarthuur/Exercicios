@@ -219,6 +219,96 @@ promiseGeradora.then((data) => {
    console.log(data)
  )
 
- */
+ 
 
  //10 - Crie uma função que recebe uma Promise como parâmetro e retorna uma nova Promise que resolve com o mesmo valor, mas apenas após 1 segundo adicional.
+
+ //Seção 2 - Exercicios de async await:
+
+ 1- Criando uma função async: Escreva uma função async que retorna uma Promise que resolve depois de um segundo. Em seguida, use async/await para chamar essa função e imprimir o resultado.
+2 - Tratando erros: Modifique a função do exercício anterior para que ela tenha uma chance de erro aleatória. Use try/catch para capturar esse erro quando você chamar a função.
+3 - Chamadas de API assíncronas: Faça uma chamada de API assíncrona usando fetch(). Imprima os dados retornados da API.
+4 - Esperando múltiplas Promises: Crie duas funções assíncronas que retornam Promises que resolvem após diferentes períodos de tempo. Use Promise.all() para esperar que ambas as Promises sejam resolvidas e, em seguida, imprima os resultados.
+Aninhando async/await: Crie uma função async que chama outra função async dentro dela. Imprima o resultado retornado pela função interna.
+Iteração assíncrona: Crie uma função async que percorra uma lista de URLs e faça uma chamada de API para cada URL usando await. Imprima os resultados quando todas as chamadas de API forem concluídas.
+Limitando chamadas assíncronas: Modifique o exercício anterior para que, no máximo, apenas três chamadas de API sejam feitas simultaneamente. Use Promise.all() com um número limitado de Promises.
+Timeout em uma Promise: Crie uma função que retorna uma Promise que resolve após um certo tempo, mas rejeita se demorar mais do que um limite especificado. Use Promise.race() para implementar isso.
+Executando em paralelo e sequencialmente: Crie uma função que chama três funções assíncronas em paralelo e, em seguida, chama outra função assíncrona após todas as três serem concluídas. Use async/await para garantir a ordem correta de execução.
+Promisify: Transforme uma função de estilo de callback em uma versão assíncrona usando promisify do módulo 'util' do Node.js. Em seguida, chame essa função assíncrona usando await.
+
+
+
+// Resolução 1 - correta
+
+async function executaP1() {
+
+  const p1 = await new Promise ((resolve) => {
+    setTimeout(() => {
+      resolve('A função carregou corretamente!')}, 1000
+    )
+  });
+
+}
+
+executaP1(p1)
+console.log(p1)
+
+
+
+//Resolução 2 - Tratando erros: Modifique a função do exercício anterior para que ela tenha uma chance de erro aleatória. Use try/catch para capturar esse erro quando você chamar a função. meio certo
+
+async function executaP1() {
+  try {
+    const p1 = await new Promise ((resolve, reject) => {
+      var numero = parseInt(Math.random() * 5 + 1);
+
+      if (numero === 5) {
+        setTimeout(() => {
+          resolve(console.log('O resultado é 5'));
+        }, 1000);
+      } else {
+        setTimeout(() => {
+          reject(new Error(`O resultado é diferente de 5, o número é ${numero}`));
+        }, 1000);
+      }
+    });
+  } catch (error) {
+    console.log('Aconteceu um erro:', error.message);
+  }
+}
+
+executaP1();
+ 
+
+executaP1(p1)
+console.log(p1)
+
+
+
+// Resolução 3 - Chamadas de API assíncronas: Faça uma chamada de API assíncrona usando fetch(). Imprima os dados retornados da API.
+
+async function puxaDados () {
+  try {
+    await const apiDados = fetch('UrldaAPI')
+    await apiDados.then((dados))
+    await apiDados.then(dados.Json())
+
+    console.log(`O dado impresso é ${dados.nome[0]}`)
+  }
+
+  catch(error) {
+    console.log('Houve um erro ao carregar os dados' + error)
+  }
+}
+
+*/
+
+//Resolução 4 - Esperando múltiplas Promises: Crie duas funções assíncronas que retornam Promises que resolvem após diferentes períodos de tempo. Use Promise.all() para esperar que ambas as Promises sejam resolvidas e, em seguida, imprima os resultados.
+
+async function p1 () {
+
+}
+
+async function p2 () {
+
+}
