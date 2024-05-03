@@ -333,5 +333,20 @@ async function myPromises () {
 
 myPromises()
 
-*/
+
 // 5 - Aninhando async/await: Crie uma função async que chama outra função async dentro dela. Imprima o resultado retornado pela função interna.
+
+async function chamaFuncao () {
+
+  async function coletaDados () {
+    await let recado = 'Deu tudo certo! os dados foram carregados com sucesso'
+  }
+
+  console.log(recado)
+
+}
+
+chamaFuncao();
+*/
+
+//6 - 
