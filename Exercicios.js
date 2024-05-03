@@ -347,6 +347,72 @@ async function chamaFuncao () {
 }
 
 chamaFuncao();
-*/
+
 
 //6 - 
+
+//Exercicios sobre ForEach -
+
+Escreva uma função que utilize forEach para somar todos os elementos de um array de números e retorne o resultado.
+Crie uma função que recebe um array de strings e utiliza forEach para imprimir cada string em uma linha separada.
+Escreva uma função que recebe um array de objetos representando pessoas (com propriedades nome e idade) e utiliza forEach para imprimir apenas os nomes das pessoas maiores de idade (idade >= 18).
+Implemente uma função que recebe um array de números e utiliza forEach para calcular o quadrado de cada número e imprimir o resultado.
+Crie uma função que recebe um array de números e utiliza forEach para verificar se todos os números são positivos.
+Escreva uma função que recebe um array de objetos representando produtos (com propriedades nome e preco) e utiliza forEach para calcular o preço total dos produtos.
+Implemente uma função que recebe um array de números e utiliza forEach para encontrar o maior número do array.
+Crie uma função que recebe um array de números e utiliza forEach para criar um novo array com os números elevados ao quadrado.
+Escreva uma função que recebe um array de strings e utiliza forEach para criar um novo array contendo o tamanho de cada string.
+Implemente uma função que recebe um array de números e utiliza forEach para calcular a média dos valores do array.
+
+
+
+//1 - 
+
+arrayNumeros = [5,10,35,60,20]
+let soma = 0;
+arrayNumeros.forEach(numero => {
+  soma += numero;
+});
+
+
+//2 - 
+
+let arrayStrings = ['Luiz Arthur', 'João' , 'Cláudio']
+
+function imprimirNaTela (arrayStrings) {
+  arrayStrings.forEach(string => {
+    document.body.innerHTML += `
+    ${string} <br>
+    `
+  });
+   
+}
+
+
+
+//3 Escreva uma função que recebe um array de objetos representando pessoas (com propriedades nome e idade) e utiliza forEach para imprimir apenas os nomes das pessoas maiores de idade (idade >= 18).
+
+const arrayObjetos = []
+let luiz = {nome: 'Luiz Arthur', sobrenome: 'Winter', idade: 23}
+let joao = {nome: 'João Pedro' , sobrenome: 'Vegeta', idade: 22}
+let leozinho = {nome: 'Leonardo Costa', sobrenome: 'Careca', idade: 27}
+
+arrayObjetos.push(luiz,joao,leozinho)
+
+function imprimeMaiores (arrayObjetos) {
+  arrayObjetos.forEach(pessoa => {
+    if (pessoa.idade >= 18) {
+      document.body.innerHTML += `      
+      <p> A pessoa ${pessoa.nome} tem ${pessoa.idade} e é maior de idade </p>
+      `
+    }
+    else{
+      document.body.innerHTML += `<p> A pessoa ${pessoa.nome} tem ${pessoa.idade} anos, e não é maior de idade </p>`
+    }
+  });
+}
+
+imprimeMaiores(arrayObjetos)
+
+*/
+
