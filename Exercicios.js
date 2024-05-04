@@ -414,5 +414,181 @@ function imprimeMaiores (arrayObjetos) {
 
 imprimeMaiores(arrayObjetos)
 
+
+
+//4 Implemente uma função que recebe um array de números e utiliza forEach para calcular o quadrado de cada número e imprimir o resultado.
+
+ArrayAoQuadrado = [2,5,89,6,12];
+
+function elevarAoQuadrado(array) {
+  resultado = []
+  array.forEach(numero => {
+    resultado.push(numero ** 2);
+  });
+  return resultado
+}
+
+console.log(elevarAoQuadrado(ArrayAoQuadrado))
+
+
+
+//5 Crie uma função que recebe um array de números e utiliza forEach para verificar se todos os números são positivos.
+
+
+
+function checaSoPositivos (array) {
+  let arrayPositivos = []
+  let arrayNegativos = []
+
+  array.forEach(numero => {
+    if (numero > 0) {
+      arrayPositivos.push(numero)
+    }
+    else {
+      arrayNegativos.push(numero)
+    }
+
+    document.body.innerHTML = `
+    <h1>Meus exercícios de JS</h1>
+    Os numeros positivos são: [${arrayPositivos.join(',')}] <br>
+    Os numeros negativos são: [${arrayNegativos.join(',')}] <br>
+    `
+  });
+}
+
+arraySoPositivos = [-1, -50, 3, 60, 4, -8]
+checaSoPositivos(arraySoPositivos)
+
+
+
+//6 Escreva uma função que recebe um array de objetos representando produtos (com propriedades nome e preco) e utiliza forEach para calcular o preço total dos produtos.
+
+const meusProdutos = [
+  {nome: 'Açucar 1KG', preco: 5.99},
+  {nome: 'Sabão em pó 1KG', preco: 10.99},
+  {nome: 'Ração para Gatos 1KH', preco: 20.99},
+  {nome: 'Papel Higiênico com 24 unidades', preco: 25.99}
+]
+
+function calculaTotal (array) {
+  let valorTotal = 0
+  array.forEach(produto => {
+    valorTotal += produto.preco
+    console.log(valorTotal)
+  });
+  document.body.innerHTML = `
+  <h1>Meus exercícios de JS</h1>
+  O valor total das suas compras é R$ ${valorTotal.toFixed(2)}
+  `
+  return valorTotal
+
+
+  
+}
+
+calculaTotal(meusProdutos)
+
+
+
+//7 - Implemente uma função que recebe um array de números e utiliza forEach para encontrar o maior número do array.
+
+function encontrarMaiorNumero(array) {
+  let maiorNumero = array[0];
+
+  array.forEach(numero => {
+    if (numero > maiorNumero) {
+      maiorNumero = numero;
+    }
+  });
+
+  return maiorNumero;
+}
+
+let numeros = [5, 10, 35, 60, 20];
+console.log("O maior número é:", encontrarMaiorNumero(numeros));
+
+
+//8 - Escreva uma função que recebe um array de strings e utiliza forEach para criar um novo array contendo o tamanho de cada string.
+
+const arrayDeStrings = ['Não vou comer nem que a vaca tussa!', 'Cafunga Carequinha', 'A monalisa tem um barrigão'];
+
+function qualOTamanho (array) {
+  let tamanhos = []
+  array.forEach(string => {
+    tamanhos.push(string.length)
+  });
+
+  document.body.innerHTML = `
+  <h1>Meus exercícios de JS</h1>
+  <p>O número de letras de cada string (ordenado) é: ${tamanhos} </p>
+  `
+  return tamanhos
+
+}
+
+qualOTamanho(arrayDeStrings);
+
+
+
+//10 - Implemente uma função que recebe um array de números e utiliza forEach para calcular a média dos valores do array. 
+
+const meuArray = [1,34,89,56,2,74];
+
+function calculaMedia (array) {
+  let soma = 0
+  let media = 0
+  let divisao = array.length
+
+  
+
+  array.forEach(numero => {
+    soma += numero
+  });
+
+  media = soma / divisao
+
+  document.body.innerHTML = `
+  <h1>Meus exercícios de JS</h1>
+  <p>O valor da soma é: ${soma} </p>
+  <p>O valor da media é: ${media.toFixed(2)} </p
+  `
+
+  return media
+}
+
+calculaMedia(meuArray)
+
+
+
+//Nova seção - Sobre .map nos arrays
+
+1. Escreva uma função que recebe um array de números e utiliza `map` para retornar um novo array onde cada número é multiplicado por 2.
+
+2. Crie uma função que recebe um array de strings e utiliza `map` para retornar um novo array onde cada string tem todas as suas letras maiúsculas.
+
+3. Implemente uma função que recebe um array de objetos representando produtos (com propriedades `nome` e `preco`) e utiliza `map` para retornar um novo array contendo apenas os preços dos produtos.
+
+4. Escreva uma função que recebe um array de números e utiliza `map` para retornar um novo array onde cada número é elevado ao quadrado.
+
+5. Crie uma função que recebe um array de números e utiliza `map` para retornar um novo array onde cada número é convertido para negativo.
+
+6. Implemente uma função que recebe um array de strings e utiliza `map` para retornar um novo array contendo o tamanho de cada string.
+
+7. Escreva uma função que recebe um array de objetos representando pessoas (com propriedades `nome` e `idade`) e utiliza `map` para retornar um novo array contendo apenas os nomes das pessoas.
+
+8. Crie uma função que recebe um array de números e utiliza `map` para retornar um novo array contendo apenas os números pares.
+
+9. Implemente uma função que recebe um array de objetos representando alunos (com propriedades `nome` e `notas`) e utiliza `map` para retornar um novo array contendo apenas as médias das notas dos alunos.
+
+10. Escreva uma função que recebe um array de strings e utiliza `map` para retornar um novo array onde cada string tem seu primeiro caractere em maiúsculo.
+
+
 */
+
+//1 - Resolução:
+
+const meuArray = [0,6,3,4,8];
+
+const arrayMultiplicado = meuArray.map((x) => x*2);
+
 
