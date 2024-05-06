@@ -583,12 +583,274 @@ calculaMedia(meuArray)
 10. Escreva uma função que recebe um array de strings e utiliza `map` para retornar um novo array onde cada string tem seu primeiro caractere em maiúsculo.
 
 
-*/
+
 
 //1 - Resolução:
 
 const meuArray = [0,6,3,4,8];
 
-const arrayMultiplicado = meuArray.map((x) => x*2);
+const arrayMultiplicado = meuArray.map((x) => x * 2);
+
+console.log(arrayMultiplicado)
 
 
+
+//2 Crie uma função que recebe um array de strings e utiliza `map` para retornar um novo array onde cada string tem todas as suas letras maiúsculas.
+
+const meuArrayDeLetras = ['Monalisa' , 'O sheldon trocou os chinelos' , 'Estou com um camisa do internacional']
+
+const ArrayDeLetrasModificado = meuArrayDeLetras.map((letras) => letras.toUpperCase())
+
+console.log(ArrayDeLetrasModificado);
+
+
+
+//3 Implemente uma função que recebe um array de objetos representando produtos (com propriedades `nome` e `preco`) e utiliza `map` para retornar um novo array contendo apenas os preços dos produtos.
+
+const listaDeCompras = [
+  {nome: 'Sabão em pó', preco: 12.99},
+  {nome: 'Doce de leite mumu', preco: 5.99},
+  {nome: 'Garrafa plástica', preco: 19.99}
+
+]
+
+const listaDeComprasPreco = listaDeCompras.map((x) => x.preco)
+
+console.log(listaDeComprasPreco)
+
+
+
+// 4 Escreva uma função que recebe um array de números e utiliza `map` para retornar um novo array onde cada número é elevado ao quadrado.
+
+const arrayDeNumeros = [25,94,3,7,2]
+
+const arrayDeNumerosAoQuadrado = arrayDeNumeros.map((x) => x**2);
+
+console.log(arrayDeNumerosAoQuadrado)
+
+
+
+// 5 Crie uma função que recebe um array de números e utiliza `map` para retornar um novo array onde cada número é convertido para negativo.
+
+const arrayDeNumeros = [2,4,9,6,25,37,48];
+
+const arrayDeNumerosNegativos = arrayDeNumeros.map((x) => x * -1);
+
+console.log(arrayDeNumerosNegativos)
+
+
+
+// 6 Implemente uma função que recebe um array de strings e utiliza `map` para retornar um novo array contendo o tamanho de cada string.
+
+const qualOTamanho	= ['A monalisa está na janela', 'Tenho uma camisa do internacional', 'Oppenheimer é um filme nota 10'];
+
+const OTamanho = qualOTamanho.map((x) => x.length)
+
+console.log(OTamanho)
+
+
+
+// 7 Escreva uma função que recebe um array de objetos representando pessoas (com propriedades `nome` e `idade`) e utiliza `map` para retornar um novo array contendo apenas os nomes das pessoas.
+
+const ArrayPessoas = [
+  {nome: 'Luiz Arthur', idade: 23},
+  {nome: 'Matheus', idade: 27},
+  {nome: 'Marlene', idade: 52}
+]
+
+const ArrayPessoasNomes = ArrayPessoas.map((x => x.nome));
+
+console.log(ArrayPessoasNomes)
+
+
+
+// 8 Crie uma função que recebe um array de números e utiliza `map` para retornar um novo array contendo apenas os números pares.
+
+const arrayNumerosTotais = [4,8,3,54,74,29,5]
+
+const arrayNumerosPares = arrayNumerosTotais.map((x) => {
+  if (x % 2 === 0) {return x;}}).filter(x => x !== undefined)
+
+console.log(arrayNumerosPares)
+
+
+
+// 9 Implemente uma função que recebe um array de objetos representando alunos (com propriedades `nome` e `notas`) e utiliza `map` para retornar um novo array contendo apenas as médias das notas dos alunos.
+
+const arrayAlunos = [
+  {nome: 'Claudio', nota1: 8, nota2: 7.5, nota3: 8.9},
+  {nome: 'Jussara', nota1: 8.6, nota2: 9, nota3: 10},
+  {nome: 'Juliana', nota1: 7, nota2: 8, nota3: 9},
+  {nome: 'Humbertho', nota1: 5, nota2: 4, nota3: 9}
+]
+
+const media = arrayAlunos.map((nota) => {
+  let notaTotal = nota.nota1 + nota.nota2 + nota.nota3;
+  let fatorDivisao = arrayAlunos.length - 1;
+  let media = notaTotal / fatorDivisao
+  return media.toFixed(2)
+})
+
+console.log(media)
+
+
+
+//10 Escreva uma função que recebe um array de strings e utiliza `map` para retornar um novo array onde cada string tem seu primeiro caractere em maiúsculo.
+
+const minhaListaDeStrings = ['monalisa é muito bonita', 'ela está deitada', 'estou usando uma bermuda verde']
+
+const todasMaiusculas = minhaListaDeStrings.map((string) => string.charAt(0).toUpperCase() + string.substring(1))
+
+console.log(todasMaiusculas);
+
+
+
+// Nova Seção, sobre . filter nos arrays
+
+1. Escreva uma função que recebe um array de números e utiliza `filter` para retornar um novo array contendo apenas os números pares.
+
+2. Crie uma função que recebe um array de números e utiliza `filter` para retornar um novo array contendo apenas os números maiores que 10.
+
+3. Implemente uma função que recebe um array de strings e utiliza `filter` para retornar um novo array contendo apenas as strings com mais de 5 caracteres.
+
+4. Escreva uma função que recebe um array de objetos representando produtos (com propriedades `nome` e `preco`) e utiliza `filter` para retornar um novo array contendo apenas os produtos com preço maior que 100.
+
+5. Crie uma função que recebe um array de números e utiliza `filter` para retornar um novo array contendo apenas os números negativos.
+
+6. Implemente uma função que recebe um array de objetos representando pessoas (com propriedades `nome` e `idade`) e utiliza `filter` para retornar um novo array contendo apenas as pessoas com idade maior que 18.
+
+7. Escreva uma função que recebe um array de strings e utiliza `filter` para retornar um novo array contendo apenas as strings que começam com a letra 'A'.
+
+8. Crie uma função que recebe um array de números e utiliza `filter` para retornar um novo array contendo apenas os números que são múltiplos de 5.
+
+9. Implemente uma função que recebe um array de objetos representando produtos (com propriedades `nome` e `quantidade`) e utiliza `filter` para retornar um novo array contendo apenas os produtos com quantidade maior que 0.
+
+10. Escreva uma função que recebe um array de strings e utiliza `filter` para retornar um novo array contendo apenas as strings que são palíndromos (ou seja, que são iguais quando lidas de trás para frente).
+
+
+
+// 1 - Escreva uma função que recebe um array de números e utiliza `filter` para retornar um novo array contendo apenas os números pares.
+
+const arrayDeNumeros = [1,6,69,84,23,4,2];
+
+const arrayDeNumerosPares = arrayDeNumeros.filter((numero) => numero % 2 == 0)
+
+console.log(arrayDeNumerosPares)
+
+
+
+//2 - Crie uma função que recebe um array de números e utiliza `filter` para retornar um novo array contendo apenas os números maiores que 10.
+
+const arrayDeNumeros = [1,6,69,84,23,4,2];
+
+const arrayDeNumerosMaioresQue10 = arrayDeNumeros.filter((numero) => numero > 10)
+
+console.log(arrayDeNumerosMaioresQue10)
+
+
+
+// 3 - Implemente uma função que recebe um array de strings e utiliza `filter` para retornar um novo array contendo apenas as strings com mais de 5 caracteres.
+
+const minhaListaDeStrings = ['A monalisa é muito bonita', 'Vou limpar a casa hoje', 'Olá!']
+
+const minhaListaDeStringsFiltrada = minhaListaDeStrings.filter((string) => string.length > 5)
+
+console.log(minhaListaDeStringsFiltrada)
+
+
+
+// 4 - Escreva uma função que recebe um array de objetos representando produtos (com propriedades `nome` e `preco`) e utiliza `filter` para retornar um novo array contendo apenas os produtos com preço maior que 100.
+
+const listaDeCompras = [
+  {nome: 'Sabão em pó', preco: 12.99},
+  {nome: 'Doce de leite mumu', preco: 5.99},
+  {nome: 'Garrafa plástica', preco: 199.99},
+  {nome: 'Papel Higiênico', preço: 10.99}
+]
+
+const listaDeComprasFiltrada = listaDeCompras.filter((produto) => produto.preco > 100)
+
+console.log(listaDeComprasFiltrada)
+
+
+
+// 5 - Crie uma função que recebe um array de números e utiliza `filter` para retornar um novo array contendo apenas os números negativos.
+
+const arrayNegativos = [-1, 2 ,5, -6 ,-8, 6, -98]
+
+const arrayApenasNegativos = arrayNegativos.filter((numero) => numero < 0)
+
+console.log(arrayApenasNegativos)
+
+
+
+// 6 - Implemente uma função que recebe um array de objetos representando pessoas (com propriedades `nome` e `idade`) e utiliza `filter` para retornar um novo array contendo apenas as pessoas com idade maior que 18.
+
+const arrayAlunos = [
+  {nome: 'Claudio', idade: 20},
+  {nome: 'Jussara', idade: 25},
+  {nome: 'Juliana', idade: 16},
+  {nome: 'Humbertho', idade: 17}
+]
+
+const maioresDeIdade = arrayAlunos.filter((pessoa) => pessoa.idade >= 18);
+
+console.log(maioresDeIdade);
+
+
+
+// 7 - Escreva uma função que recebe um array de strings e utiliza `filter` para retornar um novo array contendo apenas as strings que começam com a letra 'A'.
+
+const minhaListaDeStrings = ['A monalisa é muito bonita', 'Vou limpar a casa hoje', 'Olá!', 'A casa está muito limpa', 'antes de ser adulto eu era criança'];
+
+const minhaListaDeStringsFiltrada = minhaListaDeStrings.filter((string) => string.charAt(0) == 'A' || string.charAt(0) == 'a')
+
+console.log(minhaListaDeStringsFiltrada)
+
+
+
+// 8 - Crie uma função que recebe um array de números e utiliza `filter` para retornar um novo array contendo apenas os números que são múltiplos de 5.
+
+const meuArrayDeNumeros = [9, 6, 25, 4, 85, 50]
+
+const meuArrayDeNumerosMultiplosDe5 = meuArrayDeNumeros.filter((numero) => {
+  if (Number.isInteger(numero / 5)) {return numero}
+})
+
+console.log(meuArrayDeNumerosMultiplosDe5)
+
+
+
+// 9 - Implemente uma função que recebe um array de objetos representando produtos (com propriedades `nome` e `quantidade`) e utiliza `filter` para retornar um novo array contendo apenas os produtos com quantidade maior que 0.
+
+const produtosSupermercado = [
+  {nome: 'Sabão em pó', quantidade: 1500},
+  {nome: 'Escova de dente', quantidade: 300},
+  {nome: 'Copo Stanley' , quantidade: 0}
+]
+
+const produtosSupermercadoFiltrados = produtosSupermercado.filter((produto) => produto.quantidade <= 0)
+
+console.log(produtosSupermercadoFiltrados)
+
+
+
+// 10 - Escreva uma função que recebe um array de strings e utiliza `filter` para retornar um novo array contendo apenas as strings que são palíndromos (ou seja, que são iguais quando lidas de trás para frente).
+
+
+function filtraPalindromos(array) {
+  return array.filter(palavra => {
+    const reverso = palavra.split('').reverse().join('');
+    return palavra === reverso;
+  });
+}
+
+let palavras = ["ana", "arara", "casa", "radar", "ovo", "banana"];
+console.log(filtraPalindromos(palavras)); // Saída: ["ana", "arara", "radar", "ovo"]
+
+
+Nesta solução, usamos `filter` para iterar sobre o array e retornar apenas as palavras que são palíndromos. Dentro da função de filtro, dividimos a palavra em caracteres (`split('')`), invertemos a ordem desses caracteres (`reverse()`), e juntamos novamente em uma string (`join('')`). Se a palavra original for igual à palavra invertida, ela é um palíndromo e é incluída no novo array retornado pelo `filter`.
+
+*/
+
+Seção sobre arrays . sort
