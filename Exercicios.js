@@ -851,6 +851,171 @@ console.log(filtraPalindromos(palavras)); // Saída: ["ana", "arara", "radar", "
 
 Nesta solução, usamos `filter` para iterar sobre o array e retornar apenas as palavras que são palíndromos. Dentro da função de filtro, dividimos a palavra em caracteres (`split('')`), invertemos a ordem desses caracteres (`reverse()`), e juntamos novamente em uma string (`join('')`). Se a palavra original for igual à palavra invertida, ela é um palíndromo e é incluída no novo array retornado pelo `filter`.
 
-*/
+
 
 Seção sobre arrays . sort
+
+1. **Ordenação Básica:**  
+   Crie uma função que aceite um array de números como argumento e retorne o array ordenado em ordem crescente.
+
+2. **Ordenação de Strings:**  
+   Crie uma função que aceite um array de strings como argumento e retorne o array ordenado em ordem alfabética.
+
+3. **Ordenação de Objetos:**  
+   Crie uma função que aceite um array de objetos com propriedades numéricas e retorne o array ordenado com base em uma dessas propriedades.
+
+4. **Ordenação de Strings Ignorando Maiúsculas/Minúsculas:**  
+   Modifique a função do exercício 2 para que a ordenação ignore diferenças entre maiúsculas e minúsculas.
+
+5. **Ordenação em Ordem Decrescente:**  
+   Modifique a função do exercício 1 para que retorne o array ordenado em ordem decrescente.
+
+6. **Ordenação Personalizada:**  
+   Crie uma função que aceite um array de objetos e uma função de comparação personalizada, e retorne o array ordenado de acordo com essa função.
+
+7. **Ordenação por Comprimento de String:**  
+   Crie uma função que aceite um array de strings e retorne o array ordenado pelo comprimento das strings, do menor para o maior.
+
+8. **Ordenação de Números Misturados:**  
+   Crie uma função que aceite um array contendo números e strings e retorne o array ordenado de forma que os números venham primeiro, seguidos pelas strings.
+
+9. **Ordenação Estável:**  
+   Explique o que é uma ordenação estável e como o método `sort()` do JavaScript se comporta em relação a isso.
+
+10. **Ordenação Personalizada Avançada:**  
+   Modifique a função do exercício 6 para aceitar múltiplas propriedades de ordenação, permitindo ordenar por mais de uma propriedade.
+
+   
+
+//1 Ordenação Básica
+
+const meuArray = [0,3,9,8,4,12,54];
+
+const meuArrayOrdenado = meuArray.sort((a,b) => a-b)
+
+console.log(meuArrayOrdenado)
+
+
+
+//2 Ordenação de Strings
+
+const meuArray = ['B','C','A','D'];
+
+const meuArrayOrdenado = meuArray.sort()
+
+console.log(meuArrayOrdenado)
+
+
+
+//2 Extra
+
+const palavras = ["ana", "arara", "casa", "radar", "ovo", "banana"];
+
+const palavrasOrdenadas = palavras.sort()
+
+console.log(palavrasOrdenadas)
+
+
+
+// 3 Ordenação de Objetos
+
+const produtosSupermercado = [
+  {nome: 'Sabão em pó', quantidade: 1500},
+  {nome: 'Escova de dente', quantidade: 300},
+  {nome: 'Copo Stanley' , quantidade: 0}
+]
+
+const produtosSupermercadoOrdenados = produtosSupermercado.sort(function(a,b) {
+  return a.quantidade - b.quantidade
+})
+
+console.log(produtosSupermercadoOrdenados)
+
+
+// 4 Modifique a função do exercício 2 para que a ordenação ignore diferenças entre maiúsculas e minúsculas.
+
+const palavras = ["ana", "arara", "Casa", "Radar", "ovo", "banana"];
+let palavrasOrdenadas = []
+
+function OrdenaPalavra (arrayDePalavras) {
+  palavrasOrdenadas1 = arrayDePalavras.map((palavra) => palavra.toLowerCase())
+  palavrasOrdenadas = palavrasOrdenadas1.sort()
+  console.log(palavrasOrdenadas)
+  return palavrasOrdenadas
+}
+
+OrdenaPalavra(palavras)
+
+
+
+// 5 Modifique a função do exercício 1 para que retorne o array ordenado em ordem decrescente.
+
+const meuArray = [0,3,9,8,4,12,54];
+
+const meuArrayOrdenado = meuArray.sort((a,b) => b-a)
+
+console.log(meuArrayOrdenado)
+
+
+
+// 6 Crie uma função que aceite um array de objetos e uma função de comparação personalizada, e retorne o array ordenado de acordo com essa função.
+
+let arrayDeObjetos = []
+
+const arrayAlunos = [
+  {nome: 'Claudio', idade: 20},
+  {nome: 'Jussara', idade: 25},
+  {nome: 'Juliana', idade: 16},
+  {nome: 'Humbertho', idade: 17}
+]
+
+
+function perguntaParaUsuario () {
+  let pergunta = prompt('Voce deseja ordenar o seu array por ordem alfabética ou idade?');
+  let perguntaFiltrada = pergunta.toLowerCase().trim()
+
+  if (perguntaFiltrada == 'ordem alfabética' || perguntaFiltrada == 'ordem alfabetica') {
+    arrayDeObjetos = arrayAlunos.sort (function(a,b) {
+      return a.nome - b.nome
+    })
+    console.log(arrayDeObjetos)
+    return arrayDeObjetos
+  }
+
+  else if (perguntaFiltrada == 'idade') {
+    arrayDeObjetos = arrayAlunos.sort (function(a,b) {
+      return a.idade - b.idade
+    })
+    console.log(arrayDeObjetos)
+    return arrayDeObjetos
+  }
+
+  else {
+    alert('Você digitou errado! Por favor recarregue a página e tente novamente!')
+  }
+  
+}
+
+perguntaParaUsuario()
+
+
+
+//7 Crie uma função que aceite um array de strings e retorne o array ordenado pelo comprimento das strings, do menor para o maior.
+
+const ArraydeStrings = ['Monalisa é uma gata muito fofa', 'Gosto do internacional', 'Tome água e se hidrate'];
+
+const arrayOrdenado = ArraydeStrings.sort((a,b) => a.length - b.length)
+
+console.log(arrayOrdenado)
+
+
+
+// 8 - Crie uma função que aceite um array contendo números e strings e retorne o array ordenado de forma que os números venham primeiro, seguidos pelas strings.
+
+const meuArray = [0,2,3,5,'água','refrigerante','suco'];
+
+const meuArrayOrdenado = meuArray.sort((a,b) => a-b)
+
+console.log(meuArrayOrdenado)
+
+*/
