@@ -1018,4 +1018,202 @@ const meuArrayOrdenado = meuArray.sort((a,b) => a-b)
 
 console.log(meuArrayOrdenado)
 
-*/
+
+
+// Método reduce
+
+1. **Soma de Números:**
+   
+   Crie uma função que aceite um array de números como argumento e retorne a soma de todos os números.
+
+2. **Multiplicação de Números:**
+   
+   Crie uma função que aceite um array de números como argumento e retorne o produto de todos os números.
+
+3. **Concatenação de Strings:**
+   
+   Crie uma função que aceite um array de strings como argumento e retorne uma única string que seja a concatenação de todas as strings.
+
+4. **Contagem de Palavras:**
+   
+   Crie uma função que aceite um array de strings como argumento e retorne um objeto que contenha a contagem de ocorrências de cada palavra no array.
+
+5. **Média de Números:**
+   
+   Crie uma função que aceite um array de números como argumento e retorne a média dos números.
+
+6. **Maior Valor em um Array:**
+   
+   Crie uma função que aceite um array de números como argumento e retorne o maior valor do array.
+
+7. **Menor Valor em um Array:**
+   
+   Crie uma função que aceite um array de números como argumento e retorne o menor valor do array.
+
+8. **Filtragem de Números Pares:**
+   
+   Crie uma função que aceite um array de números como argumento e retorne um novo array contendo apenas os números pares.
+
+9. **Concatenação de Objetos:**
+   
+   Crie uma função que aceite um array de objetos como argumento e retorne um único objeto que seja a concatenação de todos os objetos.
+
+10. **Cálculo de Fatorial:**
+   
+   Crie uma função que aceite um número como argumento e retorne o fatorial desse número.
+
+
+
+//Resolução:
+
+//1 Crie uma função que aceite um array de números como argumento e retorne a soma de todos os números.
+
+const meuArrayDeNumeros = [2,5,9,84,36];
+
+const SomaDoArray = meuArrayDeNumeros.reduce((acc,curr) => acc + curr)
+
+console.log(SomaDoArray)
+
+
+
+// 2 - Crie uma função que aceite um array de números como argumento e retorne o produto de todos os números.
+
+const array1 = [8,6,45,23,123,10];
+
+function SomarArray (array) {
+  const arraySomado = array.reduce((acc,curr) => acc + curr)
+  return arraySomado
+}
+
+console.log(SomarArray(array1))
+
+
+
+//3 - Crie uma função que aceite um array de strings como argumento e retorne uma única string que seja a concatenação de todas as strings.
+
+const arrayDeStrings = ['Humbertho Mec ', 'Mat Inset ', 'Monitor bonito ']
+
+const arrayJuntada = arrayDeStrings.reduce((acc,curr) => acc + curr)
+
+console.log(arrayJuntada)
+
+
+
+//4 -  Crie uma função que aceite um array de strings como argumento e retorne um objeto que contenha a contagem de ocorrências de cada palavra no array.
+
+const listaDeCompras =  ['iogurte', 'banana', 'café', 'sucrilhos' , 'banana'];
+
+function contarPalavras(arr) {
+  return arr.reduce((acc, palavra) => {
+      if (acc[palavra]) {
+          acc[palavra] += 1;
+      } else {
+          acc[palavra] = 1;
+      }
+      return acc;
+  }, {});
+ }
+
+ contarPalavras(listaDeCompras)
+
+ //5 - Crie uma função que aceite um array de números como argumento e retorne a média dos números.
+
+ const array1 = [8,6,45,23,123,10];
+
+ function calcularMedia (array) {
+  let soma = array1.reduce((acc, curr) => acc + curr)
+  let fatorDivisao = array1.length
+  let media = soma / fatorDivisao
+
+  return media
+
+ }
+
+ console.log(calcularMedia(array1))
+
+
+
+ // 6 - Crie uma função que aceite um array de números como argumento e retorne o maior valor do array.
+
+ function encontrarMaiorValor(arr) {
+  return arr.reduce((max, current) => {
+      return current > max ? current : max;
+  }, arr[0]);
+}
+
+const numeros = [10, 5, 20, 8, 15];
+console.log(encontrarMaiorValor(numeros)); // Saída: 20
+
+//7 - Crie uma função que aceite um array de números como argumento e retorne o menor valor do array.
+
+function encontrarMaiorValor(arr) {
+  return arr.reduce((max, current) => {
+      return current < max ? current : max;
+  }, arr[0]);
+}
+
+const numeros = [10, 5, 20, 8, 15];
+console.log(encontrarMaiorValor(numeros)); // Saída: 20
+
+
+
+// 8 - Crie uma função que aceite um array de números como argumento e retorne um novo array contendo apenas os números pares.
+
+const numeros = [4,6,8,5,3,32,10,74];
+
+function apenasPares (array) {
+  let pares = []
+  let resolucao = array.reduce((acumulador,atual) => {
+    if (atual % 2 == 0) {
+      pares.push(atual)
+      acumulador += 1
+      console.log(`Os números pares são [` + pares + `] e você tem ${acumulador} números pares`)
+    }
+  } )
+  return resolucao
+}
+
+apenasPares(numeros)
+
+
+
+// 9 - Crie uma função que aceite um array de objetos como argumento e retorne um único objeto que seja a concatenação de todos os objetos.
+
+const arrayobj = [
+  {nome: 'Luiz Arthur', idade: 23},
+  {nome: 'Lucia', idade: 24}
+]
+
+function concatenarObjetos(arr) {
+  return arr.reduce((concatenado, objeto) => {
+      return {...concatenado, ...objeto};
+  }, {});
+}
+console.log(concatenarObjetos(arrayobj))
+
+// 10 - **Cálculo de Fatorial:** Crie uma função que aceite um número como argumento e retorne o fatorial desse número.
+
+function ordenarPorPropriedades(arr, ...propriedades) {
+  return arr.sort((a, b) => {
+      return propriedades.reduce((resultado, propriedade) => {
+          if (resultado !== 0) return resultado;
+          if (a[propriedade] < b[propriedade]) return -1;
+          if (a[propriedade] > b[propriedade]) return 1;
+          return 0;
+      }, 0);
+  });
+}
+
+const objetos = [
+  { nome: 'João', idade: 30, salario: 5000 },
+  { nome: 'Maria', idade: 25, salario: 6000 },
+  { nome: 'Pedro', idade: 40, salario: 4000 }
+];
+
+const ordenadoPorNomeIdade = ordenarPorPropriedades(objetos, 'nome', 'idade');
+console.log(ordenadoPorNomeIdade);
+
+const ordenadoPorSalarioNome = ordenarPorPropriedades(objetos, 'salario', 'nome');
+console.log(ordenadoPorSalarioNome);
+
+ */
